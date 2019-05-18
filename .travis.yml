@@ -7,8 +7,7 @@ before_install:
  
 script:
   - docker run hamdiceylan/aws-docker-deploy npm run test -- --coverage
-
-- echo deployment starts here
+  - echo deployment starts here
 
 deploy:
   provider: elasticbeanstalk
@@ -23,4 +22,5 @@ deploy:
   secret_access_key:
     secure: "$AWS_SECRET_KEY"
 
-- echo deployment finishes here
+script:
+  - echo deployment finishes here
