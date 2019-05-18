@@ -3,8 +3,7 @@ services:
   - docker
  
 before_install:
-  - docker build . -t hamdiceylan/aws-docker-deploy 
+  - docker build -t hamdiceylan/aws-docker-deploy -f Dockerfile.dev .
  
-#Tell Travis to execute tests (-- -- Coverage will exit npm run test and print out the code coverage)
 script:
-  - docker run -p 8080:80 hamdiceylan/aws-docker-deploy 
+  - docker run hamdiceylan/aws-docker-deploy npm run test -- --coverage
